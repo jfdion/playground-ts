@@ -39,14 +39,14 @@ describe(`An auto mapper`, () => {
 
     it(`can instantiate a subset DTO`, () => {
         const user: User = new User(new Nom('Lemieux', 'Mario'), 50, false, 'secret', 'aa@aa.ca');
-        const dto: UserDto = autoMapper.map(user, IdentificationUserDto, FieldMapperFactory.createUserFieldMapper());
+        const dto: IdentificationUserDto = autoMapper.map(user, IdentificationUserDto, FieldMapperFactory.createUserFieldMapper());
 
         expect(dto).toEqual({ nom: 'Lemieux', prenom: 'Mario' });
     });
 
     it(`can instantiate a partial DTO`, () => {
         const user: User = new User(new Nom('Lemieux', 'Mario'), 50, false, 'secret', 'aa@aa.ca');
-        const dto: UserDto = autoMapper.map(user, InexistingDataDto, FieldMapperFactory.createUserFieldMapper());
+        const dto: InexistingDataDto = autoMapper.map(user, InexistingDataDto, FieldMapperFactory.createUserFieldMapper());
 
         expect(dto).toEqual({ nom: 'Lemieux', prenom: 'Mario', motherMaidenName: undefined, team: undefined });
     });
