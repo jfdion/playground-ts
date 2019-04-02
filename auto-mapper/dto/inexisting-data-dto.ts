@@ -1,6 +1,6 @@
 export default class InexistingDataDto {
     readonly team: string = '';
-    readonly nom: string = '';
-    readonly prenom: string = '';
+    readonly lastName: string = '';
+    readonly firstName: string = '';
     readonly motherMaidenName: string = '';
 }

@@ -1,4 +1,4 @@
 export default class IdentificationUserDto {
-    readonly nom: string = '';
-    readonly prenom: string = '';
+    readonly lastName: string = '';
+    readonly firstName: string = '';
 }
