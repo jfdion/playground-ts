@@ -1,8 +1,8 @@
-import Nom from "./nom";
+import Name from "./name";
 import Timestamp from "./timestamp";
 
 export default class User {
-    private nom: Nom;
+    private name: Name;
     private password: string;
     private email: string;
     private age: number;
@@ -10,8 +10,8 @@ export default class User {
     private created: Timestamp;
     private updated: Timestamp;
 
-    constructor(nom: Nom, age: number, dead: boolean, password: string, email: string) {
-        this.nom = nom;
+    constructor(name: Name, age: number, dead: boolean, password: string, email: string) {
+        this.name = name;
         this.password = password;
         this.email = email;
         this.age = age;

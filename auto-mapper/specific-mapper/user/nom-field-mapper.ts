@@ -1,4 +1,4 @@
-import Nom from "../../api/nom";
+import Nom from "../../api/name";
 import FieldMapper from "../../mapper/field-mapper/field-mapper";
 
 export default class NomFieldMapper implements FieldMapper {
