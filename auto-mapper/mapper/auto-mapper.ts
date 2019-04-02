@@ -10,16 +10,16 @@ export default class AutoMapper {
         mappersCollection.forEach((mapper: FieldMapper) => this.fieldMappers.addMapper(mapper));
     }
 
-    public map(source: any, creator: { new(...args: any[]): any }, specificFieldMapper?: FieldMapper): any {
+    public map(source: any, creator: { new(): any }, specificFieldMapper?: FieldMapper): any {
         const mappedData = this.mapData(source, specificFieldMapper);
 
         const properties = Object.keys(new creator());
         const data: any = properties.reduce((acc: any, property: any) => {
-            acc.push(mappedData[property]);
+            acc[property] = (mappedData[property]);
             return acc;
-        }, []);
+        }, {});
 
-        return new creator(...data);
+        return Object.freeze(data);
     }
 
     private mapData(source, specificFieldMapper?: FieldMapper): object {
