@@ -11,7 +11,7 @@ export default class AutoMapper {
     }
 
     public map<T, U>(source: U, creator: { new(): T }, specificFieldMapper?: FieldMapper): T {
-        const mappedData = this.mapData(source, specificFieldMapper);
+        const mappedData = this.mapData<U>(source, specificFieldMapper);
 
         const properties = Object.keys(new creator());
         const data: Partial<T> = properties.reduce((acc: Partial<T>, property: string) => {
@@ -22,7 +22,7 @@ export default class AutoMapper {
         return Object.freeze(data) as T;
     }
 
-    private mapData(source, specificFieldMapper?: FieldMapper): Record<string, any> {
+    private mapData<U>(source: U, specificFieldMapper?: FieldMapper): Record<string, any> {
         let mappedData: Record<string, any> = this.fieldMappers.map(source, {});
         if (specificFieldMapper) {
             mappedData = specificFieldMapper.map(source, mappedData);
