@@ -19,4 +19,8 @@ export default class Distance {
     public toMeters(): number {
         return this.distanceInMeters;
     }
+
+    public toKilometers(): number {
+        return this.distanceInMeters / Distance.NUMBER_OF_METERS_IN_A_KILOMETER;
+    }
 }

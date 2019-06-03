@@ -15,4 +15,8 @@ export default class Leg {
     public addLengthTo(distance: Distance): Distance {
         return distance.add(this.length);
     }
+
+    public toString(): string {
+        return `${this.startLocation} -> ${this.length.toKilometers()} -> ${this.endLocation}`
+    }
 }
